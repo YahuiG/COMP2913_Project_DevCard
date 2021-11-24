@@ -1,0 +1,8 @@
+.forms{
+    border-radius:8px;
+    width:150px;
+    height:30px
+}
+input::-ms-input-placeholder{text-align: center;}
+
+input::-webkit-input-placeholder{text-align: center;}
