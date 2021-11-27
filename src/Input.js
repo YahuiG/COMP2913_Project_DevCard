@@ -1,29 +1,29 @@
-import Form from "./Form.js";
+import './Input.css';
 
 export default function Input(){
     const changePage = () => {
 
     }
     return(
-        <div>
+        <div class="layout">
             <h2>Create Your DevCard</h2>
-            <Form type="text" placeholder="Your Full Name"/><br/>
-            <Form type="text" placeholder="About Me"/><br/>
+            <input className="forms" type="text" placeholder="Your Full Name"/><br/><br/>
+            <input className="about" type="text" placeholder="About Me"/><br/><br/>
             
             <p>Technologies You Know:</p>
-            <Form type="checkbox"> HTML</Form>
-            <Form type="checkbox"> CSS</Form>
-            <Form type="checkbox"> JS</Form>
-            <Form type="checkbox"> Git</Form>
-            <Form type="checkbox"> React</Form>
-            <Form type="checkbox"> Node.js</Form><br/>
+            <input type="checkbox" /><label>HTML</label>
+            <input type="checkbox" /><label>CSS</label><br/>
+            <input type="checkbox" /><label>JS</label>
+            <input type="checkbox" /><label>Git</label><br/>
+            <input type="checkbox" /><label>React</label>
+            <input type="checkbox" /><label>Node.js</label><br/><br/>
 
-            <Form type="text" placeholder="Github URL" /><br/>
-            <Form type="text" placeholder="Twitter URL" /><br/>
+            <input className="forms" type="text" placeholder="Github URL" /><br/><br/>
+            <input className="forms" type="text" placeholder="Twitter URL" /><br/><br/>
 
-            <Form type="text" placeholder="Favourite Books (Seperate by comma)" /><br/>
-            <Form type="text" placeholder="Favourite Artists (Seperate by comma)" /><br/>
-            <Form type="submit" value="Create Site" />
+            <input className="forms" type="text" placeholder="Favourite Books (Seperate by comma)" /><br/><br/>
+            <input className="forms" type="text" placeholder="Favourite Artists (Seperate by comma)" /><br/><br/>
+            <input className="forms" type="submit" value="Create Site" />
 
            
         </div>
