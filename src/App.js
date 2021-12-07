@@ -1,12 +1,32 @@
-import Input from "./Input";
-import './App.css';
+import "./styles.css";
+import { Router, Outlet, ReactLocation } from "react-location";
+import CreateCard from "./CreateCard.js";
+import { useState } from "react";
+import CardShowcase from "./CardShowcase";
 
-function App() {
+const location = new ReactLocation();
+
+export default function App() {
+  const [globalDataStore, setGlobalData] = useState({
+    users: [] 
+  });
+
+  const routes = [
+    {
+      path: "/",
+      element: <CreateCard globalDataStore={globalDataStore} setGlobalData={setGlobalData} />
+    },
+    {
+      path: "showcase",
+      element: <CardShowcase globalDataStore={globalDataStore} />
+    }
+  ];
+
   return (
-    <div>
-      <Input />
-    </div>
+    <Router routes={routes} location={location}>
+      <div>
+        <Outlet />
+      </div>
+    </Router>
   );
 }
-
-export default App;
