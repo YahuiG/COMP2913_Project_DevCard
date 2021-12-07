@@ -4,40 +4,40 @@ import { useState } from "react";
 export default function CreateCard({ globalDataStore, setGlobalData }) {
   const navigate = useNavigate();
   const [form, setFormData] = useState({
-      fullName: "",
-      aboutMe: "",
-      knownTechnologies: {
-        HTML: false,
-        CSS: false,
-        JS: false,
-        Git: false,
-        React: false,
-        NodeJS: false
-      },
-      githubUrl: "",
-      twitterUrl: "",
-      favoriteBooks: ""
+    fullName: "",
+    aboutMe: "",
+    knownTechnologies: {
+      HTML: false,
+      CSS: false,
+      JS: false,
+      Git: false,
+      React: false,
+      NodeJS: false
+    },
+    githubUrl: "",
+    twitterUrl: "",
+    favoriteBooks: ""
   });
 
   const handleChange = (e) => {
     setFormData({
       ...form,
-      knownTechnologies : {
+      knownTechnologies: {
         ...form.knownTechnologies,
-        [e.target.value] :!form.knownTechnologies[e.target.value]
+        [e.target.value]: !form.knownTechnologies[e.target.value]
       }
-    })
+    });
   };
 
   const handleClick = (e) => {
     e.preventDefault(); // DON'T REFRESH THE PAGE
     // setGlobalData({
-    let id = globalDataStore.users.length + 1
+    let id = globalDataStore.users.length + 1;
     globalDataStore.users.push({
       ...form,
-      id : id,
-    favoriteBooks : form.favoriteBooks.split(",")
-    })
+      id: id,
+      favoriteBooks: form.favoriteBooks.split(",")
+    });
     // })
     navigate({ to: `showcase?id=${id}`, replace: true });
   };
@@ -62,7 +62,9 @@ export default function CreateCard({ globalDataStore, setGlobalData }) {
               name="fname"
               value={form.fullName}
               placeholder="Your Full Name"
-              onChange={(e) =>setFormData({ ...form, fullName: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...form, fullName: e.target.value })
+              }
             />
           </div>
           <div className="input-container name">
@@ -71,7 +73,9 @@ export default function CreateCard({ globalDataStore, setGlobalData }) {
               name="aboutMe"
               value={form.aboutMe}
               placeholder="About Me"
-              onChange={(e) => setFormData({ ...form, aboutMe: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...form, aboutMe: e.target.value })
+              }
             />
           </div>
           <h3>Technologies You Know</h3>
@@ -137,7 +141,9 @@ export default function CreateCard({ globalDataStore, setGlobalData }) {
               name="githubURL"
               placeholder="Github URL"
               value={form.githubUrl}
-              onChange={(e) =>setFormData({ ...form, githubUrl: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...form, githubUrl: e.target.value })
+              }
             />
           </div>
           <div className="input-container name">
@@ -146,8 +152,10 @@ export default function CreateCard({ globalDataStore, setGlobalData }) {
               name="twitterURL"
               value={form.twitterUrl}
               placeholder="Twitter URL"
-              onChange={(e) =>setFormData({...form, twitterUrl: e.target.value })}
-              />
+              onChange={(e) =>
+                setFormData({ ...form, twitterUrl: e.target.value })
+              }
+            />
           </div>
           <div className="input-container name">
             <input
@@ -155,7 +163,9 @@ export default function CreateCard({ globalDataStore, setGlobalData }) {
               name="favouriteBooks"
               placeholder="Favourite Books"
               value={form.favoriteBooks}
-              onChange={(e) =>setFormData({ ...form, favoriteBooks: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...form, favoriteBooks: e.target.value })
+              }
             />
           </div>
           <button onClick={handleClick} className="signup-btn" type="submit">

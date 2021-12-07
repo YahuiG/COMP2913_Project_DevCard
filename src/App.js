@@ -1,6 +1,6 @@
 import "./styles.css";
 import { Router, Outlet, ReactLocation } from "react-location";
-import CreateCard from "./CreateCard.js";
+import CreateCard from "./CreateCard";
 import { useState } from "react";
 import CardShowcase from "./CardShowcase";
 
@@ -8,13 +8,18 @@ const location = new ReactLocation();
 
 export default function App() {
   const [globalDataStore, setGlobalData] = useState({
-    users: [] 
+    users: []
   });
 
   const routes = [
     {
       path: "/",
-      element: <CreateCard globalDataStore={globalDataStore} setGlobalData={setGlobalData} />
+      element: (
+        <CreateCard
+          globalDataStore={globalDataStore}
+          setGlobalData={setGlobalData}
+        />
+      )
     },
     {
       path: "showcase",
